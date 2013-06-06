@@ -6,7 +6,7 @@ A language detection library named after the hindu goddess of communications and
 Issues [![Build Status](https://travis-ci.org/Legify/vac.png)](https://travis-ci.org/Legify/vac)
 ------------
 
-Feel free to open an issue if you think anything specific to this fork should be discussed. PRs are welcome. See the above notice if you have questions regarding *Vac*.
+Feel free to open an issue if you think anything specific to this fork should be discussed. PRs are welcome.
 
 Installation
 ------------
