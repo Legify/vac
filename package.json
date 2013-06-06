@@ -1,0 +1,54 @@
+{
+        "name": "vac",
+        "description": "A language detection library named after the hindu goddess of communications and words Vāc.",
+        "homepage": "https://github.com/Legify/vac",
+        "author": {
+                "name": "Legify GmbH",
+                "email": "kenan@legify.com",
+                "url": "http://legify.com/"
+        },
+        "contributors": [{
+                "name": "Kenan Sulayman",
+                "email": "kenan@legify.com",
+                "url": "http://legify.com/"
+        }],
+        "keywords": [
+                "language",
+                "discovery",
+                "uncovering",
+                "finding",
+                "recognition",
+                "exposure",
+                "revealing",
+                "linguistic",
+                "verbal",
+                "philological",
+                "dialectal",
+                "etymological",
+                "phonological",
+                "morphological",
+                "semantic",
+                "grammatical",
+                "syntactical",
+                "deity",
+                "spirit",
+                "divinity",
+                "probe",
+                "examination"
+        ],
+        "version": "1.0.1",
+        "main": "./src/vac",
+        "dependencies": {
+        },
+        "bugs": {
+                "url": "https://github.com/Legify/vac/issues"
+        },
+        "licenses": [{
+                        "type": "MIT",
+                        "url": "http://www.opensource.org/licenses/mit-license.php"
+        }],
+        "repository": {
+                "type": "git",
+                "url": "git://github.com/Legify/vac.git"
+        }
+}
