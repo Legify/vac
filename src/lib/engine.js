@@ -33,7 +33,7 @@
         THE SOFTWARE.
 */
 
-var dbUnicodeBlocks = require("./meta")._blocks;
+var dbUnicodeBlocks = require("./meta/_blocks.json");
 var _vac = module.exports = function (string) {
         this.threshold = 300;
         this.trigramRanks = {};

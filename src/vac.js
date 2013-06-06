@@ -35,8 +35,7 @@
 
 'use strict';
 
-var meta = require("./lib/meta"),
-        _vac = meta._vac,
+var _vac = require("./lib/meta/_vac.json"),
         _engine = require("./lib/engine"),
         ISO639 = require("./lib/639"),
         langDb = _vac["trigram"],
@@ -70,42 +69,42 @@ var vac = module.exports = new(function(languageType) {
         };
 
         // v=require("./src/vac"); v.languageType = "iso2"; v.detect("This is a test.", 1, .3)
-        this.detect = function (g, c, t) {
-                !t && (t=0);
-                if ( !t && c < 1 ) t = c, c = 0;
-                if ( t && c < 1 && t > 1 ) (c ^= t), (t ^= c), (c ^= t);
-                if ( t && t < 1 && c > 1 ) (t ^= c), (c ^= t), (t ^= c);
-                c = +c || 0; var b = [];
-                if ("" == g && 3 > g.length) return [];
-                var a = new _engine(g);
-                a.setPadStart(!0), a.analyze();
-                var d = a.getTrigramRanks(), j = Object.keys(d).length;
-                if (0 == j) return [];
-                var e = [];
-                if (this.useUnicodeNarrowing)
-                        for (var a = a.getUnicodeBlocks(), h = Object.keys(a), a = h.length; a--;) {
-                                if (unicodeMap[h[a]])
-                                        for (var f in unicodeMap[h[a]])~ e.indexOf(f) || e.push(f)
-                } else e = this.getLanguages();
-                for (a = e.length; a--;)(f = this.normalizeScore(this.distance(langDb[e[a]], d), j)) && b.push([e[a], f]);
-                b.sort(function (a,
-                        b) {
-                        return b[1] - a[1]
-                });
-                if (!b.length) return [];
-                b = 0 < c ? b.slice(0, c) : b;
-                d = b.length;
-
-                if ( this.languageType == "iso2" )
-                                for (a = d; a--;)
-                                        b[a][0] = ISO639.gC2(b[a][0])
-
-                if ( this.languageType == "iso3" )
-                                for (a = d; a--;)
-                                        b[a][0] = ISO639.gC3(b[a][0])
-
-                var z = {}; for ( a in b ) b[a][0] != null && (b[a][1] >= t) && (z[b[a][0]] = b[a][1])
-
-                return z
-        };
+        this.detect = function (a, b, c) {
+            !c && (c = 0);
+            !c && 1 > b && (c = b, b = 0);
+            c && 1 > b && 1 < c && (b ^= c, c ^= b, b ^= c);
+            c && 1 > c && 1 < b && (c ^= b, b ^= c, c ^= b);
+            b = +b || 0;
+            var d = [];
+            if ("" == a && 3 > a.length) return [];
+            a = new _engine(a);
+            a.setPadStart(!0);
+            a.analyze();
+            var f = a.getTrigramRanks(),
+                    j = Object.keys(f).length;
+            if (0 == j) return [];
+            var e = [];
+            if (this.useUnicodeNarrowing) {
+                    a = a.getUnicodeBlocks();
+                    var h = Object.keys(a);
+                    for (a = h.length; a--;)
+                            if (unicodeMap[h[a]])
+                                    for (var g in unicodeMap[h[a]])~ e.indexOf(g) || e.push(g)
+            } else e = this.getLanguages();
+            for (a = e.length; a--;)(g = this.normalizeScore(this.distance(langDb[e[a]],
+                                    f), j)) && d.push([e[a], g]);
+            d.sort(function (a, b) {
+                    return b[1] - a[1]
+            });
+            if (!d.length) return [];
+            d = 0 < b ? d.slice(0, b) : d;
+            f = d.length;
+            if ("iso2" == this.languageType)
+                    for (a = f; a--;) d[a][0] = ISO639.gC2(d[a][0]);
+            if ("iso3" == this.languageType)
+                    for (a = f; a--;) d[a][0] = ISO639.gC3(d[a][0]);
+            b = {};
+            for (a in d) null != d[a][0] && d[a][1] >= c && (b[d[a][0]] = d[a][1]);
+            return b
+    };
 })
