@@ -21,7 +21,6 @@ Usage
         // default: english, iso2: en, iso3: eng
                 vac.languageType = "iso2";
 
-        // ( text, max (=maximum returned matches), treshold (=float lt 1; will omit any match < treshold) )
         vac.detect("A language detection library named after the hindu goddess of communications and words", 1, .3)
                 // = { en: 0.34011904761904754 }
 
